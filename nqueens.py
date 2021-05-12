@@ -60,13 +60,19 @@ def isdiagonal_available(n, pi, pj, board):
         tj += 1
     return True
 
+# def check_3x3():
+
+
 
 def queen(n, N, board):
     print(n)
+
     if n==0:
         return True
     for i in range(0,N):
         for j in range(0,N):
+            # Dynamic program to reduce computational time // memoize technique.
+            
             if iscolumn_available(N, j, board) and isrow_available(N, i, board) and isdiagonal_available(N, i, j, board):
                 board[i][j] = 1
                 if queen(n-1, N, board)==True:
@@ -75,7 +81,7 @@ def queen(n, N, board):
 
     return False
 
-q = 4
+q = 8
 board = np.zeros((q, q))
 queen(q, q, board)
 print(board)
