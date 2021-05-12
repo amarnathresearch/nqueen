@@ -63,7 +63,7 @@ def isdiagonal_available(n, pi, pj, occupied):
 
 
 def queen(si, sj, n, occupied):
-    
+    print("si & sj", si, sj)
     if iscolumn_available(n, sj, occupied) and isrow_available(n, si, occupied) and isdiagonal_available(n, si, sj, occupied):
         occupied[si][sj] = 1
         return 1
@@ -78,9 +78,10 @@ occupied = np.zeros((n, n))
 count = 0
 # occupied[0][0] = 1 # No solution
 # occupied[0][1] = 1 # Solution
-# occupied[0][2] = 1 # Solution
+occupied[0][2] = 1 # Solution
 # occupied[0][3] = 1 # No Solution
 
+# No Recursion 
 for i in range(n):
     for j in range(n):
         if queen(i, j, n, occupied) == 1:
